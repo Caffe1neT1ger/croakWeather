@@ -1,6 +1,7 @@
 import { IForecastState } from "./forecastReducer";
 
 export interface ILocation {
+  id: number;
   tz_id: string;
   name: string;
   region: string;

@@ -1,0 +1,25 @@
+.NavBar {
+  border-radius: var(--border-radius);
+  background-color: var(--main-color);
+}
+
+.LogoIcon {
+  padding-top: calc(var(--main-gap) / 2);
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.default {
+  width: 30px;
+  height: 30px;
+
+  color: var(--gray-color);
+}
+.active {
+  width: 30px;
+  height: 30px;
+
+  color: var(--white-color);
+}

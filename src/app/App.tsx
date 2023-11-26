@@ -1,6 +1,6 @@
 import { Grommet, Sidebar, Nav, Button, Main, Clock } from "grommet";
 import { useEffect, useState } from "react";
-import style from "./styles/App.module.scss";
+import style from "./App.module.scss";
 
 import { getLocation, getLocationList } from "../http/weatherApi";
 import { AppDispatch, rootState } from "../store";
@@ -11,54 +11,63 @@ import {
   setCurrentWeatherAction,
 } from "../store/currentWeatherReducer";
 import { IForecastState } from "../store/forecastReducer";
+import { NavBar } from "../components/NavBar/NavBar";
+import { AppRouter } from "../components/AppRouter/AppRouter";
+import { BrowserRouter } from "react-router-dom";
+import { ILocationMini, loadLocationListAction } from "../store/mainReducer";
+import { Search } from "../components/Search/Search";
+import { getLocationListFromLocalStorage } from "../asyncActions/asyncWeather";
 
 const theme = {
   global: {
     font: {
-      family: "Roboto",
+      family: "Comfortaa",
       size: "18px",
       height: "20px",
+      weight: "semi bold",
     },
   },
 };
 
 export const App = () => {
   const dispatch: AppDispatch = useDispatch();
-  const [inputValue, setInputValue] = useState("");
-  const currentLocation = useSelector(
-    (state: rootState) => state.currentWeather
-  );
+
   useEffect(() => {
-    const gismeteoToken: string = "token=56b30cb255.3443075";
-    document.cookie = gismeteoToken;
+    // const gismeteoToken: string = "token=56b30cb255.3443075";
+    // document.cookie = gismeteoToken;
+    // const tmpList: ILocationMini[] = [
+    //   {
+    //     id: 1,
+    //     name: "Taganrod",
+    //     region: "Taganrod",
+    //     country: "Taganrod",
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "Moscow",
+    //     region: "Moscow",
+    //     country: "Moscow",
+    //   },
+    //   {
+    //     id: 3,
+    //     name: "Rostov",
+    //     region: "Rostov",
+    //     country: "Rostov",
+    //   },
+    // ];
+    // localStorage.setItem("locationList", JSON.stringify(tmpList));
+    dispatch(getLocationListFromLocalStorage());
   }, []);
-  console.log(currentLocation);
-  const searchHandler = () => {
-    getLocationList(inputValue).then((data) => console.log(data));
-  };
-  const currentLocationHandler = () => {
-    getLocation(inputValue).then((data: IForecastState) => {
-      dispatch(setCurrentLocationAction(data.location));
-      dispatch(setCurrentWeatherAction(data.current));
-    });
-  };
 
   return (
-    <Grommet theme={theme} full={true} className={style.App}>
-      <Sidebar background="brand" header={<Clock type="digital" />}>
-        <Nav gap="small">
-          <Button hoverIndicator value="click" />
-          <Button hoverIndicator value="click" />
-        </Nav>
-      </Sidebar>
-      <Main pad="large">
-        <input
-          type="text"
-          onChange={(event) => setInputValue(event.target.value)}
-        />
-        <button onClick={() => searchHandler()}>Get Location List</button>
-        <button onClick={() => currentLocationHandler()}>Get Location</button>
-      </Main>
-    </Grommet>
+    <BrowserRouter>
+      <Grommet theme={theme} full={true} className={style.App}>
+        <NavBar />
+        <div className={style.MainSection}>
+          <Search />
+          <AppRouter />
+        </div>
+      </Grommet>
+    </BrowserRouter>
   );
 };

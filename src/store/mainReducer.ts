@@ -1,5 +1,11 @@
 import { ILocation } from "./currentWeatherReducer";
 
+export interface ILocationMini {
+  id: number;
+  name: string;
+  region: string;
+  country: string;
+}
 export interface IMainState {
   theme: "dark" | "light";
   temperature: "celsius" | "fahrenheit";
@@ -7,7 +13,7 @@ export interface IMainState {
   savedLocationList: ILocation[];
   forecastDayLimit: number;
 }
-const mainState = {
+export const mainState = {
   theme: "light",
   temperature: "celsius",
   lengthSystem: "decimal",
@@ -18,6 +24,7 @@ const mainState = {
 const SET_THEME = "SET_THEME";
 const SET_TEMPERATURE = "SET_TEMPERATURE";
 const SET_LENGTH_SYSTEM = "SET_LENGTH_SYSTEM";
+const LOAD_LOCATION_LIST = "LOAD_LOCATION_LIST";
 const ADD_LOCATION = "ADD_LOCATION";
 const REMOVE_LOCATION = "REMOVE_LOCATION";
 
@@ -29,18 +36,38 @@ export const mainReducer = (state: IMainState = mainState, action: any) => {
       return { ...state, temperature: action.payload };
     case SET_LENGTH_SYSTEM:
       return { ...state, lengthSystem: action.payload };
+    case LOAD_LOCATION_LIST:
+      const newList: ILocationMini[] = [...action.payload];
+      return {
+        ...state,
+        savedLocationList: newList,
+      };
     case ADD_LOCATION:
+      localStorage.setItem(
+        "locationList",
+        JSON.stringify([...state.savedLocationList, action.payload])
+      );
       return {
         ...state,
         savedLocationList: [...state.savedLocationList, action.payload],
       };
     case REMOVE_LOCATION:
+      localStorage.setItem(
+        "locationList",
+        JSON.stringify(
+          state.savedLocationList.filter(
+            (location) => location.tz_id !== action.payload
+          )
+        )
+      );
       return {
         ...state,
         savedLocationList: state.savedLocationList.filter(
           (location) => location.tz_id !== action.payload
         ),
       };
+    default:
+      return state;
   }
 };
 
@@ -56,11 +83,15 @@ export const setLengthSystemAction = (payload: IMainState["lengthSystem"]) => ({
   type: SET_LENGTH_SYSTEM,
   payload,
 });
-export const addLocationAction = (payload: ILocation) => ({
+export const loadLocationListAction = (payload: ILocationMini[]) => ({
+  type: LOAD_LOCATION_LIST,
+  payload,
+});
+export const addLocationAction = (payload: ILocationMini) => ({
   type: ADD_LOCATION,
   payload,
 });
-export const removeLocationAction = (payload: string) => ({
+export const removeLocationAction = (payload: number) => ({
   type: REMOVE_LOCATION,
   payload,
 });
