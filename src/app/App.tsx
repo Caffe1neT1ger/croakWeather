@@ -14,7 +14,11 @@ import { IForecastState } from "../store/forecastReducer";
 import { NavBar } from "../components/NavBar/NavBar";
 import { AppRouter } from "../components/AppRouter/AppRouter";
 import { BrowserRouter } from "react-router-dom";
-import { ILocationMini, loadLocationListAction } from "../store/mainReducer";
+import {
+  ILocationMini,
+  loadLocationListAction,
+  mainState,
+} from "../store/mainReducer";
 import { Search } from "../components/Search/Search";
 import { getLocationListFromLocalStorage } from "../asyncActions/asyncWeather";
 
@@ -31,31 +35,7 @@ const theme = {
 
 export const App = () => {
   const dispatch: AppDispatch = useDispatch();
-
   useEffect(() => {
-    // const gismeteoToken: string = "token=56b30cb255.3443075";
-    // document.cookie = gismeteoToken;
-    // const tmpList: ILocationMini[] = [
-    //   {
-    //     id: 1,
-    //     name: "Taganrod",
-    //     region: "Taganrod",
-    //     country: "Taganrod",
-    //   },
-    //   {
-    //     id: 2,
-    //     name: "Moscow",
-    //     region: "Moscow",
-    //     country: "Moscow",
-    //   },
-    //   {
-    //     id: 3,
-    //     name: "Rostov",
-    //     region: "Rostov",
-    //     country: "Rostov",
-    //   },
-    // ];
-    // localStorage.setItem("locationList", JSON.stringify(tmpList));
     dispatch(getLocationListFromLocalStorage());
   }, []);
 

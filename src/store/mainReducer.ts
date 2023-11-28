@@ -10,7 +10,7 @@ export interface IMainState {
   theme: "dark" | "light";
   temperature: "celsius" | "fahrenheit";
   lengthSystem: "decimal" | "imperial";
-  savedLocationList: ILocation[];
+  savedLocationList: ILocationMini[];
   forecastDayLimit: number;
 }
 export const mainState = {
@@ -37,10 +37,9 @@ export const mainReducer = (state: IMainState = mainState, action: any) => {
     case SET_LENGTH_SYSTEM:
       return { ...state, lengthSystem: action.payload };
     case LOAD_LOCATION_LIST:
-      const newList: ILocationMini[] = [...action.payload];
       return {
         ...state,
-        savedLocationList: newList,
+        savedLocationList: action.payload,
       };
     case ADD_LOCATION:
       localStorage.setItem(
@@ -56,14 +55,14 @@ export const mainReducer = (state: IMainState = mainState, action: any) => {
         "locationList",
         JSON.stringify(
           state.savedLocationList.filter(
-            (location) => location.tz_id !== action.payload
+            (location) => location.id !== action.payload
           )
         )
       );
       return {
         ...state,
         savedLocationList: state.savedLocationList.filter(
-          (location) => location.tz_id !== action.payload
+          (location) => location.id !== action.payload
         ),
       };
     default:

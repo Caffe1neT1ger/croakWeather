@@ -1,7 +1,12 @@
+import { useSelector } from "react-redux";
 import { getLocationById } from "../http/weatherApi";
-import { AppDispatch } from "../store";
+import { AppDispatch, rootState } from "../store";
 import { setCurrentLocationAction } from "../store/currentWeatherReducer";
-import { ILocationMini, loadLocationListAction } from "../store/mainReducer";
+import {
+  ILocationMini,
+  IMainState,
+  loadLocationListAction,
+} from "../store/mainReducer";
 
 export const fetchCurrentWeather = (locationId: number) => {
   return (dispatch: AppDispatch) => {
@@ -11,10 +16,13 @@ export const fetchCurrentWeather = (locationId: number) => {
   };
 };
 export const getLocationListFromLocalStorage = () => {
-  const locationList: ILocationMini[] = JSON.parse(
-    localStorage.getItem("locationList") || "[]"
-  );
-  return (dispatch: AppDispatch) => {
+  return async (dispatch: AppDispatch) => {
+    const locationList: ILocationMini[] = JSON.parse(
+      localStorage.getItem("locationList") || "[]"
+    );
+    getLocationById(locationList[0].id).then((data) =>
+      dispatch(setCurrentLocationAction(data))
+    );
     return dispatch(loadLocationListAction(locationList));
   };
 };

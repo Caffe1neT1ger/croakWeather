@@ -51,3 +51,8 @@ export const getLocation = async (location: string) => {
   });
   return data;
 };
+
+export const fetchIcon = async (path: string) => {
+  const { data } = await $host.get(path);
+  return data;
+};
