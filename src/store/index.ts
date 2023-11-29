@@ -1,13 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { currentWeatherReducer } from "./currentWeatherReducer";
-import { mainReducer } from "./mainReducer";
-import { forecastReducer } from "./forecastReducer";
-
-const rootReducer = combineReducers({
-  currentWeather: currentWeatherReducer,
-  forecast: forecastReducer,
-  main: mainReducer,
-});
+const rootReducer = combineReducers({});
 
 export const store = configureStore({
   reducer: rootReducer,
