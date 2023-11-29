@@ -1,0 +1,19 @@
+.AirCondition {
+  background-color: var(--main-color);
+  border-radius: var(--border-radius);
+  padding: var(--main-gap);
+}
+
+.title {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--gray-color);
+  font-weight: bold;
+  margin-bottom: var(--main-gap);
+}
+.infoBlock {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--main-gap);
+}

@@ -2,31 +2,31 @@ import { useState } from "react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { getLocationList } from "../../http/weatherApi";
 import styles from "./Search.module.scss";
-import { ILocation } from "../../store/currentWeatherReducer";
+// import { ILocation } from "../../store/currentWeatherReducer";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
 import { useDispatch } from "react-redux";
-import { fetchCurrentWeather } from "../../asyncActions/asyncWeather";
+// import { fetchCurrentWeather } from "../../asyncActions/asyncWeather";
 
 export const Search = () => {
   const [inputValue, setInputValue] = useState<string>("");
-  const [choiceList, setChoiceList] = useState<ILocation[]>([]);
+  // const [choiceList, setChoiceList] = useState<ILocation[]>([]);
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
 
   const fetchLocations = () => {
     if (inputValue.length > 0) {
-      getLocationList(inputValue).then((data) => setChoiceList(data));
+      // getLocationList(inputValue).then((data) => setChoiceList(data));
     }
   };
 
   const clearBtnHandler = () => {
     setInputValue("");
-    setChoiceList([]);
+    // setChoiceList([]);
   };
   const redirectToLocation = (locationId: number) => {
     clearBtnHandler();
-    dispatch(fetchCurrentWeather(locationId));
+    // dispatch(fetchCurrentWeather(locationId));
     navigate("/");
   };
 
@@ -50,7 +50,7 @@ export const Search = () => {
           onClick={() => fetchLocations()}
         />
       </div>
-      {choiceList.length === 0 ? (
+      {/* {choiceList.length === 0 ? (
         ""
       ) : (
         <div className={styles.choiceList}>
@@ -66,7 +66,7 @@ export const Search = () => {
             );
           })}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

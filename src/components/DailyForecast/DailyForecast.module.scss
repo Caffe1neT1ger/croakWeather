@@ -1,0 +1,28 @@
+.DailyForecast {
+  font-weight: bold;
+  padding: var(--main-gap);
+  width: 100%;
+  background-color: var(--main-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--main-gap);
+  height: auto;
+  margin-bottom: var(--main-gap);
+}
+.title {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--gray-color);
+}
+.forecastList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: var(--main-gap);
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+::-webkit-scrollbar {
+  opacity: 0;
+}

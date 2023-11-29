@@ -1,0 +1,21 @@
+.Weather {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: var(--main-gap);
+}
+.mainSection {
+  width: 60%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.weeklyForecast {
+  width: 100%;
+  height: 300px;
+  background-color: var(--main-color);
+  border-radius: var(--border-radius);
+}

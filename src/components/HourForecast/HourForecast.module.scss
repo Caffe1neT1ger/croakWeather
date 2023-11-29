@@ -1,0 +1,20 @@
+.HourForecast {
+  padding-right: var(--main-gap);
+  max-width: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--main-gap);
+  align-items: center;
+  border-right: 1px solid var(--gray-color);
+}
+.time {
+  color: var(--gray-color);
+}
+.degrees {
+  font-size: 20px;
+  font-weight: bold;
+}
+.HourForecast:last-child {
+  border-right: none;
+}

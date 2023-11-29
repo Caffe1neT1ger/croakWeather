@@ -1,0 +1,40 @@
+.BasicLocationInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: var(--main-gap);
+  padding: var(--main-gap);
+  margin-bottom: var(--main-gap);
+}
+.mainBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  row-gap: var(--main-gap);
+}
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--main-gap);
+}
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.weatherIcon {
+  width: 120px;
+  height: 120px;
+}
+.degrees {
+  font-size: 48px;
+  font-weight: bold;
+}
