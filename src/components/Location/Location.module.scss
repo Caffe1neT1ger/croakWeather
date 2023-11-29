@@ -1,0 +1,42 @@
+.Location {
+  width: 60%;
+  background-color: var(--main-color);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--main-gap);
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+.Location:hover {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--blue-color);
+}
+.mainSection {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  column-gap: var(--main-gap);
+}
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--main-gap);
+}
+.time {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--gray-color);
+}
+.icon {
+  height: 80px;
+  width: auto;
+}
+.temperature {
+  font-size: 32px;
+}
