@@ -1,4 +1,5 @@
 import { ILocation } from "./currentWeatherReducer";
+import { IForecastState } from "./forecastReducer";
 
 export interface ILocationMini {
   id: number;
@@ -10,7 +11,7 @@ export interface IMainState {
   theme: "dark" | "light";
   temperature: "celsius" | "fahrenheit";
   lengthSystem: "decimal" | "imperial";
-  savedLocationList: ILocationMini[];
+  savedLocationList: IForecastState[];
   forecastDayLimit: number;
 }
 export const mainState = {
@@ -55,14 +56,14 @@ export const mainReducer = (state: IMainState = mainState, action: any) => {
         "locationList",
         JSON.stringify(
           state.savedLocationList.filter(
-            (location) => location.id !== action.payload
+            (location) => location.location.id !== action.payload
           )
         )
       );
       return {
         ...state,
         savedLocationList: state.savedLocationList.filter(
-          (location) => location.id !== action.payload
+          (location) => location.location.id !== action.payload
         ),
       };
     default:
@@ -82,7 +83,7 @@ export const setLengthSystemAction = (payload: IMainState["lengthSystem"]) => ({
   type: SET_LENGTH_SYSTEM,
   payload,
 });
-export const loadLocationListAction = (payload: ILocationMini[]) => ({
+export const loadLocationListAction = (payload: IForecastState[]) => ({
   type: LOAD_LOCATION_LIST,
   payload,
 });

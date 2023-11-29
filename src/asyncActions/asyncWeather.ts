@@ -15,14 +15,14 @@ export const fetchCurrentWeather = (locationId: number) => {
     );
   };
 };
-export const getLocationListFromLocalStorage = () => {
-  return async (dispatch: AppDispatch) => {
-    const locationList: ILocationMini[] = JSON.parse(
-      localStorage.getItem("locationList") || "[]"
-    );
-    getLocationById(locationList[0].id).then((data) =>
-      dispatch(setCurrentLocationAction(data))
-    );
-    return dispatch(loadLocationListAction(locationList));
-  };
-};
+// export const getLocationListFromLocalStorage = () => {
+//   return async (dispatch: AppDispatch) => {
+//     const locationList: ILocationMini[] = JSON.parse(
+//       localStorage.getItem("locationList") || "[]"
+//     );
+//     getLocationById(locationList[0].id).then((data) =>
+//       dispatch(setCurrentLocationAction(data))
+//     );
+//     return dispatch(loadLocationListAction(locationList));
+//   };
+// };
