@@ -21,11 +21,11 @@ export interface ILocation {
   lat: number;
   lon: number;
   tz_id: string;
-  localtime: string | Date;
+  localtime: string;
 }
 
 export interface IWeather {
-  lastUpdate?: string | Date;
+  lastUpdate?: string;
 
   temp_c: number;
   temp_f: number;
@@ -45,7 +45,7 @@ export interface IWeather {
   humidity: number;
   uv: number;
 
-  condition?: ICondition;
+  condition: ICondition;
 }
 
 export interface ICondition {
@@ -55,7 +55,7 @@ export interface ICondition {
 }
 
 export interface IForecastDay {
-  date: string | Date;
+  date: string;
   day: IDayInfo[];
   astro: IAstro;
   hour: IForecastHour[];

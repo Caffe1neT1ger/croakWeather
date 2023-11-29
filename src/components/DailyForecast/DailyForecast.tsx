@@ -11,8 +11,6 @@ interface IDailyForecastProps {
 
 export const DailyForecast = ({ todayForecast }: IDailyForecastProps) => {
   const now = Date.now();
-
-  console.log(todayForecast.length);
   return (
     <div className={styles.DailyForecast}>
       <div className={styles.title}>Today's Forecast</div>
