@@ -6,27 +6,34 @@ import styles from "./Search.module.scss";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch } from "../../store";
 import { useDispatch } from "react-redux";
+import { ILocation } from "../../utils/interfaces/weatherInterfaces";
+import {
+  currentWeatherAction,
+  fetchCurrentWeather,
+} from "../../store/currentWeatherState";
+import { mainStateActions } from "../../store/mainState";
 // import { fetchCurrentWeather } from "../../asyncActions/asyncWeather";
 
 export const Search = () => {
   const [inputValue, setInputValue] = useState<string>("");
-  // const [choiceList, setChoiceList] = useState<ILocation[]>([]);
+  const [choiceList, setChoiceList] = useState<ILocation[]>([]);
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
 
   const fetchLocations = () => {
     if (inputValue.length > 0) {
-      // getLocationList(inputValue).then((data) => setChoiceList(data));
+      getLocationList(inputValue).then((data) => setChoiceList(data));
     }
   };
 
   const clearBtnHandler = () => {
     setInputValue("");
-    // setChoiceList([]);
+    setChoiceList([]);
   };
-  const redirectToLocation = (locationId: number) => {
+
+  const redirectToLocation = (locationName: string) => {
     clearBtnHandler();
-    // dispatch(fetchCurrentWeather(locationId));
+    dispatch(mainStateActions.mainStateSetCurrentLocation(locationName));
     navigate("/");
   };
 
@@ -50,23 +57,23 @@ export const Search = () => {
           onClick={() => fetchLocations()}
         />
       </div>
-      {/* {choiceList.length === 0 ? (
+      {choiceList.length === 0 ? (
         ""
       ) : (
         <div className={styles.choiceList}>
-          {choiceList.map((item) => {
+          {choiceList.map((item, index) => {
             return (
               <div
                 className={styles.choiceItem}
-                key={item.id}
-                onClick={() => redirectToLocation(item.id)}
+                key={index}
+                onClick={() => redirectToLocation(item.name)}
               >
                 {item.name}, {item.region}
               </div>
             );
           })}
         </div>
-      )} */}
+      )}
     </div>
   );
 };

@@ -1,0 +1,11 @@
+.settingBlock {
+  background-color: var(--main-color);
+  border-radius: var(--border-radius);
+  padding: var(--main-gap);
+  width: 60%;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: var(--main-gap) 0;
+}

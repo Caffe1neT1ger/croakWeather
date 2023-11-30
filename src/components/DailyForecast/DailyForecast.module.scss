@@ -1,7 +1,6 @@
 .DailyForecast {
   font-weight: bold;
   padding: var(--main-gap);
-  // width: 100%;
   background-color: var(--main-color);
   border-radius: var(--border-radius);
   display: flex;
@@ -16,6 +15,7 @@
   color: var(--gray-color);
 }
 .forecastList {
+  column-gap: var(--main-gap);
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

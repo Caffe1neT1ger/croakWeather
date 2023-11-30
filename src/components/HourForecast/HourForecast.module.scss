@@ -1,7 +1,7 @@
 .HourForecast {
   padding-right: var(--main-gap);
-  max-width: 120px;
-  width: 100%;
+  min-width: 100px;
+
   display: flex;
   flex-direction: column;
   row-gap: var(--main-gap);
@@ -12,7 +12,7 @@
   color: var(--gray-color);
 }
 .degrees {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 .HourForecast:last-child {

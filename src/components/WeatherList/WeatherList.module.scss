@@ -3,3 +3,9 @@
   flex-direction: column;
   row-gap: var(--main-gap);
 }
+.empty {
+  padding: var(--main-gap);
+  color: var(--gray-color);
+  font-size: 24px;
+  font-weight: bold;
+}

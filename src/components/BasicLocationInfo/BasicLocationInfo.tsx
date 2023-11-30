@@ -1,6 +1,9 @@
-import { mainState, numberSystems } from "../../utils/consts";
+import { useEffect } from "react";
+
 import { ILocation, IWeather } from "../../utils/interfaces/weatherInterfaces";
 import styles from "./BasicLocationInfo.module.scss";
+import { useSelector } from "react-redux";
+import { rootState } from "../../store";
 
 interface IBasicLocationInfoProps {
   location: ILocation;
@@ -11,7 +14,19 @@ export const BasicLocationInfo = ({
   location,
   current,
 }: IBasicLocationInfoProps) => {
+  const mainState = useSelector((state: rootState) => state.mainReducer);
   const degreesSymbol = mainState.temperature == "celsius" ? " °C" : " °F";
+  const saveLocationHanlder = () => {
+    const savedLocationList: ILocation[] = JSON.parse(
+      localStorage.getItem("locationList") || "[]"
+    );
+    if (!savedLocationList.find((item) => item.name === location.name)) {
+      localStorage.setItem(
+        "locationList",
+        JSON.stringify([...savedLocationList, location])
+      );
+    }
+  };
 
   return (
     <div className={styles.BasicLocationInfo}>
@@ -24,9 +39,19 @@ export const BasicLocationInfo = ({
           </div>
         </div>
         <div className={styles.degrees}>
-          {String(current[numberSystems.temp as keyof typeof current])}
+          {String(
+            current[mainState.numberSystems.temp as keyof typeof current]
+          )}
           {degreesSymbol}
         </div>
+      </div>
+      <div className={styles.saveBlock}>
+        <button
+          className={styles.saveBtn}
+          onClick={() => saveLocationHanlder()}
+        >
+          Save
+        </button>
       </div>
       <img
         className={styles.weatherIcon}
