@@ -5,54 +5,57 @@ import { $host } from ".";
 // forecast for days: q=location; days=1-14 days; dt=2010-01-01;
 // forecast  for one day: q=location; hour=0-24; dt=2010-01-01;
 
-export const getLocationListById = async (location: number) => {
-  const { data } = await $host.get("/search.json", {
-    params: {
-      q: "id:" + location,
-      //   lang: "ru",
-    },
-    headers: {
-      key: import.meta.env.VITE_REACT_APP_API_TOKEN,
-    },
-  });
-  return data;
+export const getCurrentWeather = async (location: number | string) => {
+  if (typeof location === "number") {
+    const { data } = await $host.get("/current.json", {
+      params: {
+        q: "id:" + location,
+        lang: "ru",
+      },
+    });
+    return data;
+  }
+  if (typeof location === "string") {
+    const { data } = await $host.get("/current.json", {
+      params: {
+        q: location,
+        lang: "ru",
+      },
+    });
+    return data;
+  }
+};
+export const getForecastWeather = async (
+  location: number | string,
+  days: number = 7
+) => {
+  if (typeof location === "number") {
+    const { data } = await $host.get("/forecast.json", {
+      params: {
+        q: "id:" + location,
+        days: days,
+        lang: "ru",
+      },
+    });
+    return data;
+  }
+  if (typeof location === "string") {
+    const { data } = await $host.get("/forecast.json", {
+      params: {
+        q: location,
+        days: days,
+        lang: "ru",
+      },
+    });
+    return data;
+  }
 };
 export const getLocationList = async (location: string) => {
   const { data } = await $host.get("/search.json", {
     params: {
       q: location,
-      //   lang: "ru",
-    },
-    headers: {
-      key: import.meta.env.VITE_REACT_APP_API_TOKEN,
+      lang: "ru",
     },
   });
-  return data;
-};
-export const getLocationById = async (location: number) => {
-  const { data } = await $host.get("/current.json", {
-    params: {
-      q: "id:" + location,
-    },
-    headers: {
-      key: import.meta.env.VITE_REACT_APP_API_TOKEN,
-    },
-  });
-  return data;
-};
-export const getLocation = async (location: string) => {
-  const { data } = await $host.get("/current.json", {
-    params: {
-      q: location,
-    },
-    headers: {
-      key: import.meta.env.VITE_REACT_APP_API_TOKEN,
-    },
-  });
-  return data;
-};
-
-export const fetchIcon = async (path: string) => {
-  const { data } = await $host.get(path);
   return data;
 };
