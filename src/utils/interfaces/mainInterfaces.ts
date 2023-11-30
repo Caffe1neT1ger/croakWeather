@@ -1,9 +1,11 @@
 import { IForecast } from "./weatherInterfaces";
 
 export interface IMainState {
-  theme: "dark" | "light";
-  temperature: "celsius" | "fahrenheit";
-  lengthSystem: "decimal" | "imperial";
-  savedLocationList?: IForecast[];
+  theme: string;
+  temperature: string;
+  lengthSystem: string;
+  savedLocationList: IForecast[];
   forecastDayLimit: number;
+  numberSystems: any;
+  currentLocation: string;
 }

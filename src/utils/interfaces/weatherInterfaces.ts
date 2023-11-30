@@ -14,23 +14,29 @@ export interface ISearchLocation {
   url: string;
 }
 
-export interface ILocation {
+export interface ILocationBase {
   name: string;
   region: string;
   country: string;
   lat: number;
   lon: number;
-  tz_id: string;
+
   localtime: string;
 }
 
+export interface ILocation extends ILocationBase {
+  tz_id: string;
+}
+export interface ILocationSearch extends ILocationBase {
+  id: number;
+}
 export interface IWeather {
   lastUpdate?: string;
 
   temp_c: number;
   temp_f: number;
 
-  is_day: boolean;
+  is_day: number;
 
   wind_kph: number;
   wind_mph: number;
@@ -56,7 +62,7 @@ export interface ICondition {
 
 export interface IForecastDay {
   date: string;
-  day: IDayInfo[];
+  day: IDayInfo;
   astro: IAstro;
   hour: IForecastHour[];
 }
