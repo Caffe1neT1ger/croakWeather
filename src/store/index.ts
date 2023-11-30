@@ -1,8 +1,12 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-const rootReducer = combineReducers({});
+import { configureStore } from "@reduxjs/toolkit";
+import { mainStateReducer } from "./mainState";
+import { currentWeatherReducer } from "./currentWeatherState";
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    mainReducer: mainStateReducer,
+    currentWeatherReducer: currentWeatherReducer,
+  },
 });
 
 export type rootState = ReturnType<typeof store.getState>;
