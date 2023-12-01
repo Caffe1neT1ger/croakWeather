@@ -20,3 +20,15 @@
 .HourForecast:last-child {
   border-right: none;
 }
+
+@media (width <=300px) {
+  .HourForecast {
+    row-gap: calc(var(--main-gap) / 2);
+  }
+  .degrees {
+    font-size: 14px;
+  }
+  .time {
+    font-size: 14px;
+  }
+}

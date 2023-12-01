@@ -17,6 +17,7 @@
 
 .forecastList {
   height: calc(100% - 40px);
+  overflow-x: hidden;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -56,5 +57,25 @@
 }
 
 .conditionText {
-  font-size: 14px;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (width <=500px) {
+  .weeklyForecast {
+    padding: calc(var(--main-gap) / 2);
+  }
+}
+@media (width <=300px) {
+  .weeklyForecast {
+    padding: calc(var(--main-gap) / 2);
+  }
+  .forecastItem {
+    flex-direction: column;
+    padding: calc(var(--main-gap) / 2);
+  }
+  .dateSection {
+    column-gap: var(--main-gap);
+    flex-direction: row;
+  }
 }

@@ -38,3 +38,9 @@
   border-radius: calc(var(--border-radius) - 3px);
   background-color: var(--main-color);
 }
+
+@media (width<=300px) {
+  .options {
+    flex-direction: column;
+  }
+}

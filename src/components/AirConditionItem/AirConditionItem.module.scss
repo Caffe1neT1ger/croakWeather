@@ -27,3 +27,30 @@
 .value {
   font-size: 20px;
 }
+
+@media (width <= 500px) {
+  .infoItem {
+    width: 100%;
+  }
+  .infoInner {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .value {
+    font-size: 18px;
+  }
+}
+@media (width <= 250px) {
+  .infoItem {
+    width: 100%;
+  }
+  .infoInner {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .value {
+    font-size: 16px;
+  }
+}

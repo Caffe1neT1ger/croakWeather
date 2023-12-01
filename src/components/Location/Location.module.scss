@@ -63,3 +63,91 @@
 .temperature {
   font-size: 32px;
 }
+
+@media (width <=700px) {
+  .temperature {
+    font-size: 28px;
+  }
+}
+
+@media (width <=500px) {
+  .Location {
+    padding: calc(var(--main-gap) / 2);
+  }
+  .title {
+    font-size: 20px;
+  }
+
+  .time {
+    font-size: 18px;
+  }
+
+  .icon {
+    height: 40px;
+    width: auto;
+  }
+
+  .temperature {
+    font-size: 28px;
+  }
+}
+@media (width <=400px) {
+  .Location {
+  }
+  .title {
+    font-size: 18px;
+  }
+
+  .time {
+    font-size: 18px;
+  }
+
+  .icon {
+    height: 30px;
+    width: auto;
+  }
+
+  .temperature {
+    font-size: 22px;
+  }
+}
+@media (width <=350px) {
+  .Location {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(var(--main-gap) / 2);
+  }
+
+  .title {
+    column-gap: 20px;
+    flex-direction: row;
+    font-size: 18px;
+  }
+
+  .time {
+    font-size: 18px;
+  }
+
+  .icon {
+    height: 30px;
+    width: auto;
+  }
+
+  .temperature {
+    font-size: 22px;
+  }
+}
+@media (width <=300px) {
+  .icon {
+    display: none;
+  }
+  .time {
+    text-align: center;
+  }
+  .title {
+    row-gap: calc(var(--main-gap) / 2);
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+}

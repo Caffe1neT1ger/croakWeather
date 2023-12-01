@@ -47,19 +47,21 @@ export const BasicLocationInfo = ({
           {degreesSymbol}
         </div>
       </div>
-      <div className={styles.saveBlock}>
-        <button
-          className={styles.saveBtn}
-          onClick={() => saveLocationHanlder()}
-        >
-          Save
-        </button>
+      <div className={styles.secondaryBlock}>
+        <div className={styles.saveBlock}>
+          <button
+            className={styles.saveBtn}
+            onClick={() => saveLocationHanlder()}
+          >
+            Save
+          </button>
+        </div>
+        <img
+          className={styles.weatherIcon}
+          src={current.condition?.icon}
+          alt={current.condition?.text}
+        ></img>
       </div>
-      <img
-        className={styles.weatherIcon}
-        src={current.condition?.icon}
-        alt={current.condition?.text}
-      ></img>
     </div>
   );
 };

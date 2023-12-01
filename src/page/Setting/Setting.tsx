@@ -30,7 +30,7 @@ export const Setting = () => {
   };
 
   return (
-    <div>
+    <div className={styles.Setting}>
       <div className={styles.title}>Settings</div>
       <div className={styles.settingBlock}>
         <SettingOption

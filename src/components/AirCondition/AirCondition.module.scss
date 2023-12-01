@@ -18,3 +18,21 @@
   grid-template-rows: 1fr 1fr;
   gap: var(--main-gap);
 }
+
+@media (width <= 400px) {
+  .AirCondition {
+    padding: calc(var(--main-gap) / 2);
+  }
+  .infoBlock {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--main-gap);
+    align-items: flex-start;
+  }
+  .title {
+    font-size: 14px;
+  }
+  .forecastList {
+    height: 80%;
+  }
+}

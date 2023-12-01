@@ -1,11 +1,31 @@
+.Setting {
+  height: 100%;
+  width: 60%;
+}
+
 .settingBlock {
   background-color: var(--main-color);
   border-radius: var(--border-radius);
   padding: var(--main-gap);
-  width: 60%;
+  width: 100%;
+  height: 60vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .title {
   font-size: 24px;
   font-weight: bold;
   margin: var(--main-gap) 0;
+}
+
+@media (width <=700px) {
+  .Setting {
+    height: 100%;
+    width: 100%;
+  }
+  .settingBlock {
+    height: calc(100vh - var(--main-gap) * 7.5);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 }

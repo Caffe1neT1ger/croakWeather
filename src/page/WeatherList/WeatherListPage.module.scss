@@ -5,3 +5,8 @@
   row-gap: var(--main-gap);
   align-items: flex-start;
 }
+@media (width <= 900px) {
+  .WeatherList {
+    width: 100%;
+  }
+}

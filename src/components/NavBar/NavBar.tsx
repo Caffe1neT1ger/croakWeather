@@ -18,7 +18,7 @@ export const NavBar = () => {
 
   return (
     <div className={styles.NavBar}>
-      <div>
+      <div className={styles.logoSection}>
         <div className={styles.LogoIcon} onClick={() => navigate("/")}>
           CW
         </div>

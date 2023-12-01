@@ -25,3 +25,15 @@
   overflow-y: hidden;
   overflow-x: scroll;
 }
+
+@media (width <= 300px) {
+  .DailyForecast {
+    padding: calc(var(--main-gap) / 2);
+  }
+  .title {
+    font-size: 14px;
+  }
+  .forecastList {
+    height: 80%;
+  }
+}

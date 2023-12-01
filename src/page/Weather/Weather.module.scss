@@ -9,11 +9,13 @@
 
 .mainSection {
   height: 100%;
-  width: 60%;
-  max-width: 100%;
+  width: 100%;
+  flex-basis: 160%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .weeklyForecast {
@@ -40,5 +42,19 @@
 @keyframes s3 {
   to {
     transform: rotate(1turn);
+  }
+}
+
+@media (width <= 900px) {
+  .Weather {
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media (width <= 700px) {
+  .loader {
+    margin-top: 30vh;
   }
 }

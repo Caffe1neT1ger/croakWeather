@@ -37,3 +37,45 @@
   height: 40px;
   color: var(--white-color);
 }
+
+@media (width <= 700px) {
+  .NavBar {
+    margin-top: calc(var(--main-gap) / 2);
+    padding: calc(var(--main-gap) / 2);
+    height: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: var(--main-gap);
+    flex-wrap: wrap;
+  }
+  .LogoIcon {
+    font-size: 20px;
+  }
+  .default {
+    width: 30px;
+    height: 30px;
+  }
+  .active {
+    width: 30px;
+    height: 30px;
+  }
+  .navigation {
+    width: fit-content;
+    column-gap: var(--main-gap);
+    flex-direction: row;
+  }
+}
+
+@media (width <= 500px) {
+  .logoSection {
+    display: none;
+  }
+  .default {
+    width: 20px;
+    height: 20px;
+  }
+  .active {
+    width: 20px;
+    height: 20px;
+  }
+}
