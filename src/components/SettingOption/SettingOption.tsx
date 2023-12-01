@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import styles from "./SettingOption.module.scss";
 
 interface ISettingOptionProps {
@@ -11,18 +12,20 @@ interface ISettingOptionProps {
 export const SettingOption = ({
   title,
   options,
-  switchOptionFunction,
   defaultOption,
+  switchOptionFunction,
 }: ISettingOptionProps) => {
   const [selectedOption, setSelectedOption] = useState<string | number>(
     defaultOption
   );
+
   const switchOptionHanlder = (option: string | number) => {
     if (selectedOption !== option) {
       switchOptionFunction(option);
       setSelectedOption(option);
     }
   };
+
   return (
     <div className={styles.settingOption}>
       <div className={styles.title}>{title}</div>

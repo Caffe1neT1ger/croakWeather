@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { rootState } from "../../store";
 
 import { ILocation, IWeather } from "../../utils/interfaces/weatherInterfaces";
+
 import styles from "./BasicLocationInfo.module.scss";
-import { useSelector } from "react-redux";
-import { rootState } from "../../store";
 
 interface IBasicLocationInfoProps {
   location: ILocation;
@@ -16,6 +17,7 @@ export const BasicLocationInfo = ({
 }: IBasicLocationInfoProps) => {
   const mainState = useSelector((state: rootState) => state.mainReducer);
   const degreesSymbol = mainState.temperature == "celsius" ? " °C" : " °F";
+
   const saveLocationHanlder = () => {
     const savedLocationList: ILocation[] = JSON.parse(
       localStorage.getItem("locationList") || "[]"

@@ -1,5 +1,4 @@
 .BasicLocationInfo {
-  // width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -7,6 +6,7 @@
   padding: var(--main-gap);
   margin-bottom: var(--main-gap);
 }
+
 .mainBlock {
   display: flex;
   flex-direction: column;
@@ -14,15 +14,18 @@
   height: 100%;
   row-gap: var(--main-gap);
 }
+
 .titleSection {
   display: flex;
   flex-direction: column;
   row-gap: var(--main-gap);
 }
+
 .title {
   font-size: 32px;
   font-weight: bold;
 }
+
 .subtitle {
   font-size: 24px;
   font-weight: 600;
@@ -30,14 +33,17 @@
   flex-direction: column;
   row-gap: 10px;
 }
+
 .weatherIcon {
   width: 120px;
   height: 120px;
 }
+
 .degrees {
   font-size: 48px;
   font-weight: bold;
 }
+
 .saveBlock {
   height: 100%;
   display: flex;
@@ -45,6 +51,7 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
 .saveBtn {
   border: 2px solid var(--blue-color);
   color: var(--white-color);
@@ -55,6 +62,7 @@
   cursor: pointer;
   transition: background-color 0.2s linear;
 }
+
 .saveBtn:hover {
   background-color: var(--gray-color);
   border: 2px solid var(--blue-color);

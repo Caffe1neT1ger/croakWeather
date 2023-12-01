@@ -1,9 +1,11 @@
 import { useNavigate, useLocation } from "react-router-dom";
+
 import {
   AdjustmentsHorizontalIcon,
   CloudIcon,
   ListBulletIcon,
 } from "@heroicons/react/24/solid";
+
 import styles from "./NavBar.module.scss";
 
 export const NavBar = () => {

@@ -6,6 +6,7 @@
   row-gap: var(--main-gap);
   position: relative;
 }
+
 .searchInputBlock {
   min-width: 260px;
   position: relative;
@@ -13,6 +14,7 @@
   align-items: center;
   width: 100%;
 }
+
 .searchInput {
   margin: 2px;
   width: 100%;
@@ -32,6 +34,7 @@
   margin-right: 10px;
   fill: var(--white-color);
 }
+
 .clearIcon {
   cursor: pointer;
   position: absolute;
@@ -40,6 +43,7 @@
   height: 20px;
   fill: var(--gray-color);
 }
+
 .choiceList {
   top: 50px;
   position: absolute;
@@ -52,6 +56,7 @@
   row-gap: var(--main-gap);
   width: 60%;
 }
+
 .choiceItem {
   cursor: pointer;
   border-radius: var(--border-radius);

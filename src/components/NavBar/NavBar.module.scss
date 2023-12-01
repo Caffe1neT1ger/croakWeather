@@ -16,23 +16,24 @@
   font-weight: bold;
   cursor: pointer;
 }
+
 .navigation {
   width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: var(--main-gap);
 }
+
 .default {
   cursor: pointer;
   width: 40px;
   height: 40px;
-
   color: var(--gray-color);
 }
+
 .active {
   cursor: pointer;
   width: 40px;
   height: 40px;
-
   color: var(--white-color);
 }

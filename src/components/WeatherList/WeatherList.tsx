@@ -1,8 +1,12 @@
-import { Location } from "../Location/Location";
-import { IForecast } from "../../utils/interfaces/weatherInterfaces";
-import styles from "./WeatherList.module.scss";
 import { useSelector } from "react-redux";
+
+import { Location } from "../Location/Location";
+
 import { rootState } from "../../store";
+
+import { IForecast } from "../../utils/interfaces/weatherInterfaces";
+
+import styles from "./WeatherList.module.scss";
 
 interface IWeatherListProps {
   weatherList: IForecast[];

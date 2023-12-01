@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
-import {
-  IForecast,
-  IForecastDay,
-} from "../../utils/interfaces/weatherInterfaces";
-import styles from "./WeeklyForecast.module.scss";
+
 import { rootState } from "../../store";
+
+import { IForecastDay } from "../../utils/interfaces/weatherInterfaces";
+
+import styles from "./WeeklyForecast.module.scss";
 interface IWeeklyForecastProps {
   weekForecast: IForecastDay[];
 }
 
 export const WeeklyForecast = ({ weekForecast }: IWeeklyForecastProps) => {
-  const mainState = useSelector((state: rootState) => state.mainReducer);
+  const numberSystems = useSelector(
+    (state: rootState) => state.mainReducer.numberSystems
+  );
+
   return (
     <div className={styles.weeklyForecast}>
       <div className={styles.title}>7-Day Forecast</div>
@@ -43,16 +46,14 @@ export const WeeklyForecast = ({ weekForecast }: IWeeklyForecastProps) => {
               <div>
                 {String(
                   dayForecast.day[
-                    mainState.numberSystems
-                      .maxtemp as keyof typeof dayForecast.day
+                    numberSystems.maxtemp as keyof typeof dayForecast.day
                   ]
                 )}
                 <span className={styles.secondary}>
                   /
                   {String(
                     dayForecast.day[
-                      mainState.numberSystems
-                        .mintemp as keyof typeof dayForecast.day
+                      numberSystems.mintemp as keyof typeof dayForecast.day
                     ]
                   )}
                 </span>

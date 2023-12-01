@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { IForecast, IForecastDay } from "../utils/interfaces/weatherInterfaces";
 import { getForecastWeather } from "../http/weatherApi";
+import { IForecast, IForecastDay } from "../utils/interfaces/weatherInterfaces";
 
 export const getLocationIdFromLS = () => {
   const location = JSON.parse(localStorage.getItem("locationIdList") || "[]");
@@ -22,6 +22,7 @@ export const fetchCurrentWeather = createAsyncThunk(
     }
   }
 );
+
 const initialState: IForecast = {
   location: {
     name: "Taganrog",

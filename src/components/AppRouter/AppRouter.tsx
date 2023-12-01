@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+
 import { Weather } from "../../page/Weather/Weather";
 import { Setting } from "../../page/Setting/Setting";
 import { WeatherListPage } from "../../page/WeatherList/WeatherListPage";

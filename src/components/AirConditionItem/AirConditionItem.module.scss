@@ -5,12 +5,14 @@
   column-gap: calc(var(--main-gap) / 2);
   align-items: flex-start;
 }
+
 .infoInner {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   row-gap: calc(var(--main-gap) / 2);
 }
+
 .infoItemTitle {
   color: var(--gray-color);
   font-weight: bold;
@@ -21,6 +23,7 @@
   height: auto;
   fill: var(--gray-color);
 }
+
 .value {
   font-size: 20px;
 }

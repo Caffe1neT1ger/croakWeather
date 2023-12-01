@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IMainState } from "../utils/interfaces/mainInterfaces";
 import { IForecast, ILocation } from "../utils/interfaces/weatherInterfaces";
 import {
@@ -56,6 +56,7 @@ export const updateMainState = () => {
     };
   }
 };
+
 const removeLocationFromLS = (name: string) => {
   const list: ILocation[] = JSON.parse(
     localStorage.getItem("locationList") || "[]"
@@ -84,6 +85,7 @@ const updateNumberSystem = (newState: IMainState) => {
     maxwind: newState.lengthSystem === "decimal" ? maxwind_kph : maxwind_mph,
   };
 };
+
 const mainStateSlice = createSlice({
   name: "mainState",
   initialState: {

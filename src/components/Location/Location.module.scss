@@ -16,11 +16,13 @@
   transition: background-color 0.2s linear;
   cursor: pointer;
 }
+
 .Location:hover {
   border-radius: var(--main-gap) 0px 0px var(--main-gap);
   background-color: var(--secondary-color);
   border: 1px solid var(--blue-color);
 }
+
 .functionalSection {
   display: flex;
   align-items: center;
@@ -30,6 +32,7 @@
   background-color: var(--main-color);
   border-radius: 0px var(--main-gap) var(--main-gap) 0px;
 }
+
 .mainSection {
   display: flex;
   justify-content: flex-start;
@@ -37,6 +40,7 @@
   align-items: center;
   column-gap: var(--main-gap);
 }
+
 .title {
   font-size: 20px;
   font-weight: bold;
@@ -44,15 +48,18 @@
   flex-direction: column;
   row-gap: var(--main-gap);
 }
+
 .time {
   font-size: 18px;
   font-weight: 400;
   color: var(--gray-color);
 }
+
 .icon {
   height: 80px;
   width: auto;
 }
+
 .temperature {
   font-size: 32px;
 }

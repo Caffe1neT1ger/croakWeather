@@ -27,9 +27,11 @@ export interface ILocationBase {
 export interface ILocation extends ILocationBase {
   tz_id: string;
 }
+
 export interface ILocationSearch extends ILocationBase {
   id: number;
 }
+
 export interface IWeather {
   lastUpdate?: string;
 

@@ -1,31 +1,29 @@
-import { BasicLocationInfo } from "../../components/BasicLocationInfo/BasicLocationInfo";
-
-import styles from "./Weather.module.scss";
-import { DailyForecast } from "../../components/DailyForecast/DailyForecast";
-import { AirCondition } from "../../components/AirCondition/AirCondition";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, rootState } from "../../store";
 
+import { AirCondition } from "../../components/AirCondition/AirCondition";
+import { DailyForecast } from "../../components/DailyForecast/DailyForecast";
+import { WeeklyForecast } from "../../components/WeeklyForecast/WeeklyForecast";
+import { BasicLocationInfo } from "../../components/BasicLocationInfo/BasicLocationInfo";
+
+import { AppDispatch, rootState } from "../../store";
 import {
   currentWeatherAction,
   fetchCurrentWeather,
-  getLocationIdFromLS,
 } from "../../store/currentWeatherState";
-import { WeeklyForecast } from "../../components/WeeklyForecast/WeeklyForecast";
+
+import styles from "./Weather.module.scss";
 
 export const Weather = () => {
-  const forecastDayLimit = useSelector(
-    (state: rootState) => state.mainReducer.forecastDayLimit
-  );
+  const [isLoading, setIsloading] = useState(true);
+  const dispatch: AppDispatch = useDispatch();
   const currentWeather = useSelector(
     (state: rootState) => state.currentWeatherReducer
   );
   const currentLocation = useSelector(
     (state: rootState) => state.mainReducer.currentLocation
   );
-  const [isLoading, setIsloading] = useState(true);
-  const dispatch: AppDispatch = useDispatch();
+
   useEffect(() => {
     async function fetchData(locationName: number | string) {
       const data = await dispatch(fetchCurrentWeather(locationName));

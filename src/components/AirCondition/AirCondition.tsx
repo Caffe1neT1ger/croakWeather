@@ -1,12 +1,17 @@
-import { IWeather } from "../../utils/interfaces/weatherInterfaces";
+import { useSelector } from "react-redux";
+
+import { AirConditionItem } from "../AirConditionItem/AirConditionItem";
+
+import { rootState } from "../../store";
+
 import temperatureIcon from "../../assets/icons/Temperature_light.svg";
 import windIcon from "../../assets/icons/wind-icon.svg";
 import sunIcon from "../../assets/icons/Sunlight_light.svg";
 import rainDropIcon from "../../assets/icons/Water_light.svg";
+
+import { IWeather } from "../../utils/interfaces/weatherInterfaces";
+
 import styles from "./AirCondition.module.scss";
-import { AirConditionItem } from "../AirConditionItem/AirConditionItem";
-import { useSelector } from "react-redux";
-import { rootState } from "../../store";
 interface IAirConditionProps {
   weather: IWeather;
 }

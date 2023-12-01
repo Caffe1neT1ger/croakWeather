@@ -1,24 +1,23 @@
 import { useState } from "react";
-import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { getLocationList } from "../../http/weatherApi";
-import styles from "./Search.module.scss";
-// import { ILocation } from "../../store/currentWeatherReducer";
-import { useNavigate } from "react-router-dom";
-import { AppDispatch } from "../../store";
 import { useDispatch } from "react-redux";
-import { ILocation } from "../../utils/interfaces/weatherInterfaces";
-import {
-  currentWeatherAction,
-  fetchCurrentWeather,
-} from "../../store/currentWeatherState";
+import { useNavigate } from "react-router-dom";
+
+import { AppDispatch } from "../../store";
 import { mainStateActions } from "../../store/mainState";
-// import { fetchCurrentWeather } from "../../asyncActions/asyncWeather";
+
+import { getLocationList } from "../../http/weatherApi";
+
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/solid";
+
+import { ILocation } from "../../utils/interfaces/weatherInterfaces";
+
+import styles from "./Search.module.scss";
 
 export const Search = () => {
-  const [inputValue, setInputValue] = useState<string>("");
-  const [choiceList, setChoiceList] = useState<ILocation[]>([]);
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
+  const [inputValue, setInputValue] = useState<string>("");
+  const [choiceList, setChoiceList] = useState<ILocation[]>([]);
 
   const fetchLocations = () => {
     if (inputValue.length > 0) {

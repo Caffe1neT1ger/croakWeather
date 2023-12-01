@@ -1,8 +1,7 @@
-import {
-  IDayInfo,
-  IForecastDay,
-} from "../../utils/interfaces/weatherInterfaces";
 import { HourForecast } from "../HourForecast/HourForecast";
+
+import { IForecastDay } from "../../utils/interfaces/weatherInterfaces";
+
 import styles from "./DailyForecast.module.scss";
 
 interface IDailyForecastProps {
@@ -11,6 +10,7 @@ interface IDailyForecastProps {
 
 export const DailyForecast = ({ todayForecast }: IDailyForecastProps) => {
   const now = Date.now();
+
   return (
     <div className={styles.DailyForecast}>
       <div className={styles.title}>Today's Forecast</div>
