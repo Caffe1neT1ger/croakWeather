@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { IForecast, ILocation } from "../../utils/interfaces/weatherInterfaces";
 import { getCurrentWeather } from "../../http/weatherApi";
 import { mainStateActions } from "../../store/mainState";
-
+import { Search } from "../../components/Search/Search";
+import styles from "./WeatherListPage.module.scss";
 export const WeatherListPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const weatherList: IForecast[] = useSelector(
@@ -29,5 +30,10 @@ export const WeatherListPage = () => {
     fetchDataAndPushToState();
   }, []);
 
-  return <WeatherList weatherList={weatherList} />;
+  return (
+    <div className={styles.WeatherList}>
+      <Search />
+      <WeatherList weatherList={weatherList} />
+    </div>
+  );
 };

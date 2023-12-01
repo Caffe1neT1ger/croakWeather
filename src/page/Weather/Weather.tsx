@@ -13,7 +13,6 @@ import {
   getLocationIdFromLS,
 } from "../../store/currentWeatherState";
 import { WeeklyForecast } from "../../components/WeeklyForecast/WeeklyForecast";
-import { Spinner } from "grommet";
 
 export const Weather = () => {
   const forecastDayLimit = useSelector(
@@ -33,8 +32,9 @@ export const Weather = () => {
       dispatch(
         currentWeatherAction.currentWeatherSetCurrentWeather(data.payload)
       );
-
-      setIsloading(false);
+      setTimeout(() => {
+        setIsloading(false);
+      }, 500);
     }
     fetchData(currentLocation);
   }, [currentLocation]);
@@ -42,7 +42,7 @@ export const Weather = () => {
   if (isLoading) {
     return (
       <div className={styles.loader}>
-        <Spinner size="medium" color="#008bee" />
+        <div className={styles.customLoader}></div>
       </div>
     );
   }

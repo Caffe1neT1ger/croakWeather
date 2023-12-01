@@ -1,6 +1,5 @@
 .Weather {
   height: 100%;
-
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -13,7 +12,7 @@
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 .weeklyForecast {
   box-sizing: content-box;
@@ -24,4 +23,17 @@
 }
 .loader {
   margin: auto;
+}
+.customLoader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(#0b131e 10%, #008bee);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: s3 1s infinite linear;
+}
+@keyframes s3 {
+  to {
+    transform: rotate(1turn);
+  }
 }

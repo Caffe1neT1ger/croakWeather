@@ -1,7 +1,9 @@
 .weatherList {
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: var(--main-gap);
+  overflow-y: scroll;
 }
 .empty {
   padding: var(--main-gap);

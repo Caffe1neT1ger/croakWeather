@@ -1,6 +1,6 @@
 .weeklyForecast {
   box-sizing: border-box;
-  height: 95%;
+  height: 100%;
   width: 100%;
   margin-left: var(--main-gap);
   padding: var(--main-gap);
@@ -27,7 +27,7 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid var(--gray-color);
-  padding: var(--main-gap) 0;
+  padding: var(--main-gap);
 }
 .forecastItem:last-child {
   border: none;

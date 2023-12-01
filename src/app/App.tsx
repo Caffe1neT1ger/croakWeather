@@ -1,4 +1,3 @@
-import { Grommet } from "grommet";
 import style from "./App.module.scss";
 import { NavBar } from "../components/NavBar/NavBar";
 import { AppRouter } from "../components/AppRouter/AppRouter";
@@ -29,13 +28,12 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <Grommet theme={theme} full={true} className={style.App}>
+      <div className={style.App}>
         <NavBar />
         <div className={style.MainSection}>
-          <Search />
           <AppRouter />
         </div>
-      </Grommet>
+      </div>
     </BrowserRouter>
   );
 };

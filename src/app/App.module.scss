@@ -1,6 +1,6 @@
 .App {
-  width: 100vw;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: flex-start;
   column-gap: var(--main-gap);
@@ -11,9 +11,12 @@
   font-family: var(--font-family-main);
 }
 .MainSection {
-  height: calc(100% - calc(var(--main-gap) * 2));
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: var(--main-gap);
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
 }

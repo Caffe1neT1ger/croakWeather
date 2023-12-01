@@ -11,16 +11,18 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 60%;
+  width: 100%;
 }
 .searchInput {
+  margin: 2px;
   width: 100%;
-  border: none;
   border-radius: var(--border-radius);
   background-color: var(--main-color);
   padding: 10px;
+  border: none;
   color: var(--white-color);
 }
+
 .searchIcon {
   cursor: pointer;
   position: absolute;

@@ -1,0 +1,7 @@
+.WeatherList {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--main-gap);
+  align-items: flex-start;
+}

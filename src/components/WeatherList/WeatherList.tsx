@@ -3,7 +3,7 @@ import { IForecast } from "../../utils/interfaces/weatherInterfaces";
 import styles from "./WeatherList.module.scss";
 import { useSelector } from "react-redux";
 import { rootState } from "../../store";
-import { Spinner } from "grommet";
+
 interface IWeatherListProps {
   weatherList: IForecast[];
 }
