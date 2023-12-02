@@ -1,3 +1,5 @@
+// Зачем тут :string ???
+// Если переменная и так уже является строкой
 export const temp_c: string = "temp_c";
 export const temp_f: string = "temp_f";
 export const maxtemp_c: string = "maxtemp_c";

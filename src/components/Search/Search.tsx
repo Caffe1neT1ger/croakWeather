@@ -16,6 +16,7 @@ import styles from "./Search.module.scss";
 export const Search = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
+  // <string> is unnecessary
   const [inputValue, setInputValue] = useState<string>("");
   const [choiceList, setChoiceList] = useState<ILocation[]>([]);
 
@@ -53,13 +54,17 @@ export const Search = () => {
 
         <MagnifyingGlassIcon
           className={styles.searchIcon}
+          // unnecessary brackets
           onClick={() => fetchLocations()}
         />
       </div>
+
+      // WTF!?!?!??!!?
       {choiceList.length === 0 ? (
         ""
       ) : (
         <div className={styles.choiceList}>
+          // move out this render
           {choiceList.map((item, index) => {
             return (
               <div

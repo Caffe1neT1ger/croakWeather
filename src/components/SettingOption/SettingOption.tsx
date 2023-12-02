@@ -4,6 +4,7 @@ import styles from "./SettingOption.module.scss";
 
 interface ISettingOptionProps {
   title: string;
+  // Можно вынести
   options: { key: string; value: string }[] | { key: number; value: number }[];
   defaultOption: string | number;
   switchOptionFunction(option: string | number): void;

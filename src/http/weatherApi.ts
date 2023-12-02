@@ -18,6 +18,7 @@ export const getForecastWeather = async (
   location: number | string,
   days: number = 7
 ) => {
+  
   let query: string | number = location;
   if (typeof location === "number") {
     query = "id:" + location;
@@ -25,6 +26,8 @@ export const getForecastWeather = async (
   const { data } = await $host.get("/forecast.json", {
     params: {
       q: location,
+      // days: days,
+      // Все должено быть в одном стиле
       days,
       lang: "ru",
     },

@@ -51,6 +51,7 @@ export const BasicLocationInfo = ({
         <div className={styles.saveBlock}>
           <button
             className={styles.saveBtn}
+            //saveLocationHandler
             onClick={() => saveLocationHanlder()}
           >
             Save

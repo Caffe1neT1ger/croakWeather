@@ -32,6 +32,7 @@ export interface ILocationSearch extends ILocationBase {
   id: number;
 }
 
+// Зачем пробелы между строками
 export interface IWeather {
   lastUpdate?: string;
 

@@ -15,6 +15,7 @@ import {
 import styles from "./Weather.module.scss";
 
 export const Weather = () => {
+  // [loading, setLoading]
   const [isLoading, setIsloading] = useState(true);
   const dispatch: AppDispatch = useDispatch();
   const currentWeather = useSelector(

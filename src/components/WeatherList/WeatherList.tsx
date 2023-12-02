@@ -17,6 +17,13 @@ export const WeatherList = ({ weatherList }: IWeatherListProps) => {
     (state: rootState) => state.mainReducer.numberSystems
   );
 
+// if weatherList.length === 0 {
+  // return div... listEmpty
+// }
+
+
+// А ниже будет твой else
+
   return (
     <div className={styles.weatherList}>
       {weatherList.length !== 0 ? (

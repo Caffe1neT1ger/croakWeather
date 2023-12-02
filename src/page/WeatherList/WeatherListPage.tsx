@@ -13,12 +13,18 @@ import { IForecast, ILocation } from "../../utils/interfaces/weatherInterfaces";
 
 import styles from "./WeatherListPage.module.scss";
 
+// WeatherList folder
+// WeatherListPage component name
+// ???????????????????
+
 export const WeatherListPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const weatherList: IForecast[] = useSelector(
     (state: rootState) => state.mainReducer.savedLocationList
   );
   useEffect(() => {
+    // Асинхронная функция без await не имеет смысла
+    // + можно вынести 
     async function fetchDataAndPushToState() {
       dispatch(mainStateActions.mainStateLocationListClear());
       const locationList: ILocation[] = JSON.parse(

@@ -58,6 +58,7 @@ export const updateMainState = () => {
 };
 
 const removeLocationFromLS = (name: string) => {
+  // LOCATION_LIST
   const list: ILocation[] = JSON.parse(
     localStorage.getItem("locationList") || "[]"
   );

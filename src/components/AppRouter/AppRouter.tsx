@@ -10,6 +10,7 @@ export const AppRouter = () => {
       <Route path="/" element={<Weather />} />
       <Route path="/list" element={<WeatherListPage />} />
       <Route path="/setting" element={<Setting />} />
+      {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
       <Route path="*" element={<Navigate to={""} replace />} />
     </Routes>
   );
