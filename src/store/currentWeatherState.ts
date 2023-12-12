@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { getForecastWeather } from "../http/weatherApi";
-import { IForecast, IForecastDay } from "../utils/interfaces/weatherInterfaces";
+import { IForecast, IForecastDay } from "../interfaces/weatherInterfaces";
 
 export const getLocationIdFromLS = () => {
   const location = JSON.parse(localStorage.getItem("locationIdList") || "[]");

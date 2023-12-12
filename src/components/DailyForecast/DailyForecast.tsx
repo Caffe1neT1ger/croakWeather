@@ -1,6 +1,8 @@
+import { FC } from "react";
+
 import { HourForecast } from "../HourForecast/HourForecast";
 
-import { IForecastDay } from "../../utils/interfaces/weatherInterfaces";
+import { IForecastDay } from "../../interfaces/weatherInterfaces";
 
 import styles from "./DailyForecast.module.scss";
 
@@ -8,7 +10,7 @@ interface IDailyForecastProps {
   todayForecast: IForecastDay[] | [{ hour: [] }];
 }
 
-export const DailyForecast = ({ todayForecast }: IDailyForecastProps) => {
+export const DailyForecast: FC<IDailyForecastProps> = ({ todayForecast }) => {
   const now = Date.now();
 
   return (

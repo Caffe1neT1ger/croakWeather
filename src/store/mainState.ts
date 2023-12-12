@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMainState } from "../utils/interfaces/mainInterfaces";
-import { IForecast, ILocation } from "../utils/interfaces/weatherInterfaces";
+import { IMainState } from "../interfaces/mainInterfaces";
+import { IForecast, ILocation } from "../interfaces/weatherInterfaces";
 import {
   avgtemp_c,
   avgtemp_f,
   feelslike_c,
   feelslike_f,
+  LOCATION_LIST,
+  MAIN,
   maxtemp_c,
   maxtemp_f,
   maxwind_kph,
@@ -16,7 +18,7 @@ import {
   temp_f,
   wind_kph,
   wind_mph,
-} from "../utils/consts";
+} from "../consts/consts";
 
 export const numberSystems = {
   temp: temp_c,
@@ -39,8 +41,8 @@ const initialState: IMainState = {
 };
 
 export const updateMainState = () => {
-  if (localStorage.getItem("main") !== null) {
-    const newMain = JSON.parse(localStorage.getItem("main") || "{}");
+  if (localStorage.getItem(MAIN) !== null) {
+    const newMain = JSON.parse(localStorage.getItem(MAIN) || "{}");
     return {
       ...newMain,
       numberSystems: {
@@ -59,14 +61,14 @@ export const updateMainState = () => {
 
 const removeLocationFromLS = (name: string) => {
   const list: ILocation[] = JSON.parse(
-    localStorage.getItem("locationList") || "[]"
+    localStorage.getItem(LOCATION_LIST) || "[]"
   );
   const newList = list.filter((location) => location.name !== name);
-  localStorage.setItem("locationList", JSON.stringify(newList));
+  localStorage.setItem(LOCATION_LIST, JSON.stringify(newList));
 };
 const updateNumberSystem = (newState: IMainState) => {
   localStorage.setItem(
-    "main",
+    MAIN,
     JSON.stringify({
       theme: newState.theme,
       temperature: newState.temperature,

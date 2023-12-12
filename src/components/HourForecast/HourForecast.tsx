@@ -1,16 +1,16 @@
+import { FC } from "react";
 import { useSelector } from "react-redux";
 
 import { rootState } from "../../store";
 
-import { IForecastHour } from "../../utils/interfaces/weatherInterfaces";
+import { IForecastHour } from "../../interfaces/weatherInterfaces";
 
 import styles from "./HourForecast.module.scss";
-
 interface IHourForecastProps {
   hour: IForecastHour;
 }
 
-export const HourForecast = ({ hour }: IHourForecastProps) => {
+export const HourForecast: FC<IHourForecastProps> = ({ hour }) => {
   const mainState = useSelector((state: rootState) => state.mainReducer);
   const degreesSymbol = mainState.temperature == "celsius" ? " °C" : " °F";
   const time = new Date(Date.parse(hour.time)).toLocaleTimeString([], {

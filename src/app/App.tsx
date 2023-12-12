@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
 
 import { NavBar } from "../components/NavBar/NavBar";
 import { AppRouter } from "../components/AppRouter/AppRouter";
@@ -18,13 +17,11 @@ export const App = () => {
   });
 
   return (
-    <BrowserRouter>
-      <div className={style.App}>
-        <NavBar />
-        <div className={style.MainSection}>
-          <AppRouter />
-        </div>
+    <div className={style.App}>
+      <NavBar />
+      <div className={style.MainSection}>
+        <AppRouter />
       </div>
-    </BrowserRouter>
+    </div>
   );
 };

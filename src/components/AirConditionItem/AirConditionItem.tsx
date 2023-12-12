@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import styles from "./AirConditionItem.module.scss";
 
 interface IAirConditionItemProps {
@@ -6,11 +8,11 @@ interface IAirConditionItemProps {
   value: string;
 }
 
-export const AirConditionItem = ({
+export const AirConditionItem: FC<IAirConditionItemProps> = ({
   title,
   iconSrc,
   value,
-}: IAirConditionItemProps) => (
+}) => (
   <div className={styles.infoItem}>
     <img className={styles.icon} src={iconSrc} alt="" />
     <div className={styles.infoInner}>

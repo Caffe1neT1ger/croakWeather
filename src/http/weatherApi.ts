@@ -25,7 +25,7 @@ export const getForecastWeather = async (
   const { data } = await $host.get("/forecast.json", {
     params: {
       q: location,
-      days,
+      days: days,
       lang: "ru",
     },
   });

@@ -9,30 +9,31 @@ import { mainStateActions } from "../../store/mainState";
 
 import { getCurrentWeather } from "../../http/weatherApi";
 
-import { IForecast, ILocation } from "../../utils/interfaces/weatherInterfaces";
+import { IForecast, ILocation } from "../../interfaces/weatherInterfaces";
 
 import styles from "./WeatherListPage.module.scss";
+import { LOCATION_LIST } from "../../consts/consts";
 
 export const WeatherListPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const weatherList: IForecast[] = useSelector(
     (state: rootState) => state.mainReducer.savedLocationList
   );
-  useEffect(() => {
-    async function fetchDataAndPushToState() {
-      dispatch(mainStateActions.mainStateLocationListClear());
-      const locationList: ILocation[] = JSON.parse(
-        localStorage.getItem("locationList") || "[]"
-      );
+  const fetchDataAndPushToState = async () => {
+    dispatch(mainStateActions.mainStateLocationListClear());
+    const locationList: ILocation[] = JSON.parse(
+      localStorage.getItem(LOCATION_LIST) || "[]"
+    );
 
-      if (locationList.length !== 0) {
-        locationList.map(async (location) => {
-          getCurrentWeather(location.name).then((data) => {
-            dispatch(mainStateActions.mainStateLocationListAdd(data));
-          });
+    if (locationList.length !== 0) {
+      locationList.map(async (location) => {
+        getCurrentWeather(location.name).then((data) => {
+          dispatch(mainStateActions.mainStateLocationListAdd(data));
         });
-      }
+      });
     }
+  };
+  useEffect(() => {
     fetchDataAndPushToState();
   }, []);
 

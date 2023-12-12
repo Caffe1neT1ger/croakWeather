@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { useSelector } from "react-redux";
 
 import { AirConditionItem } from "../AirConditionItem/AirConditionItem";
@@ -9,14 +10,15 @@ import windIcon from "../../assets/icons/wind-icon.svg";
 import sunIcon from "../../assets/icons/Sunlight_light.svg";
 import rainDropIcon from "../../assets/icons/Water_light.svg";
 
-import { IWeather } from "../../utils/interfaces/weatherInterfaces";
+import { IWeather } from "../../interfaces/weatherInterfaces";
 
 import styles from "./AirCondition.module.scss";
+
 interface IAirConditionProps {
   weather: IWeather;
 }
 
-export const AirCondition = ({ weather }: IAirConditionProps) => {
+export const AirCondition: FC<IAirConditionProps> = ({ weather }) => {
   const mainState = useSelector((state: rootState) => state.mainReducer);
   const degreesSymbol = mainState.temperature == "celsius" ? " °C" : " °F";
   const speedSymbol = mainState.lengthSystem == "decimal" ? " km/h" : " m/h";

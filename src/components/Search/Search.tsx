@@ -9,14 +9,15 @@ import { getLocationList } from "../../http/weatherApi";
 
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
-import { ILocation } from "../../utils/interfaces/weatherInterfaces";
+import { ILocation } from "../../interfaces/weatherInterfaces";
 
 import styles from "./Search.module.scss";
+import { ChoiceList } from "../../ChoiceList/ChoiceList";
 
 export const Search = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState("");
   const [choiceList, setChoiceList] = useState<ILocation[]>([]);
 
   const fetchLocations = () => {
@@ -46,33 +47,17 @@ export const Search = () => {
           type="text"
           placeholder="Search for cities"
         />
-        <XMarkIcon
-          className={styles.clearIcon}
-          onClick={() => clearBtnHandler()}
-        />
+        <XMarkIcon className={styles.clearIcon} onClick={clearBtnHandler} />
 
         <MagnifyingGlassIcon
           className={styles.searchIcon}
-          onClick={() => fetchLocations()}
+          onClick={fetchLocations}
         />
       </div>
-      {choiceList.length === 0 ? (
-        ""
-      ) : (
-        <div className={styles.choiceList}>
-          {choiceList.map((item, index) => {
-            return (
-              <div
-                className={styles.choiceItem}
-                key={index}
-                onClick={() => redirectToLocation(item.name)}
-              >
-                {item.name}, {item.region}
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <ChoiceList
+        choiceList={choiceList}
+        redirectFunction={redirectToLocation}
+      />
     </div>
   );
 };

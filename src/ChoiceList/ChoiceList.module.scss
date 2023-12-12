@@ -1,0 +1,19 @@
+.choiceList {
+  top: 50px;
+  position: absolute;
+  justify-content: flex-start;
+  border-radius: var(--border-radius);
+  padding: 5px;
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--main-gap);
+  width: 60%;
+}
+
+.choiceItem {
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  padding: 10px;
+  border: 1px solid var(--white-color);
+}

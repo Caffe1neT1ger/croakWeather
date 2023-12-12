@@ -15,7 +15,7 @@ import {
 import styles from "./Weather.module.scss";
 
 export const Weather = () => {
-  const [isLoading, setIsloading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const dispatch: AppDispatch = useDispatch();
   const currentWeather = useSelector(
     (state: rootState) => state.currentWeatherReducer
@@ -31,13 +31,13 @@ export const Weather = () => {
         currentWeatherAction.currentWeatherSetCurrentWeather(data.payload)
       );
       setTimeout(() => {
-        setIsloading(false);
+        setLoading(false);
       }, 500);
     }
     fetchData(currentLocation);
   }, [currentLocation]);
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className={styles.loader}>
         <div className={styles.customLoader}></div>

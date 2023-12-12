@@ -1,20 +1,22 @@
-import { useState } from "react";
+import { useState, FC } from "react";
+
+import { ISettingOption } from "../../interfaces/mainInterfaces";
 
 import styles from "./SettingOption.module.scss";
 
 interface ISettingOptionProps {
   title: string;
-  options: { key: string; value: string }[] | { key: number; value: number }[];
+  options: ISettingOption[];
   defaultOption: string | number;
   switchOptionFunction(option: string | number): void;
 }
 
-export const SettingOption = ({
+export const SettingOption: FC<ISettingOptionProps> = ({
   title,
   options,
   defaultOption,
   switchOptionFunction,
-}: ISettingOptionProps) => {
+}) => {
   const [selectedOption, setSelectedOption] = useState<string | number>(
     defaultOption
   );

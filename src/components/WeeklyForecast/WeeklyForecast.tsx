@@ -1,15 +1,17 @@
+import { FC } from "react";
 import { useSelector } from "react-redux";
 
 import { rootState } from "../../store";
 
-import { IForecastDay } from "../../utils/interfaces/weatherInterfaces";
+import { IForecastDay } from "../../interfaces/weatherInterfaces";
 
 import styles from "./WeeklyForecast.module.scss";
+
 interface IWeeklyForecastProps {
   weekForecast: IForecastDay[];
 }
 
-export const WeeklyForecast = ({ weekForecast }: IWeeklyForecastProps) => {
+export const WeeklyForecast: FC<IWeeklyForecastProps> = ({ weekForecast }) => {
   const numberSystems = useSelector(
     (state: rootState) => state.mainReducer.numberSystems
   );

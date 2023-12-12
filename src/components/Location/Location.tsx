@@ -1,3 +1,4 @@
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,7 +7,7 @@ import { mainStateActions } from "../../store/mainState";
 
 import { XMarkIcon } from "@heroicons/react/24/solid";
 
-import { ICondition } from "../../utils/interfaces/weatherInterfaces";
+import { ICondition } from "../../interfaces/weatherInterfaces";
 
 import styles from "./Location.module.scss";
 
@@ -17,12 +18,12 @@ interface ILocationProps {
   condition: ICondition;
 }
 
-export const Location = ({
+export const Location: FC<ILocationProps> = ({
   name,
   localtime,
   temperature,
   condition,
-}: ILocationProps) => {
+}) => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const mainState = useSelector((state: rootState) => state.mainReducer);
@@ -44,7 +45,7 @@ export const Location = ({
 
   return (
     <div className={styles.LocationSection}>
-      <div className={styles.Location} onClick={() => goToWeatherPage()}>
+      <div className={styles.Location} onClick={goToWeatherPage}>
         <div className={styles.mainSection}>
           <img
             className={styles.icon}
@@ -66,7 +67,7 @@ export const Location = ({
           height="35px"
           color="#fc7762"
           cursor="pointer"
-          onClick={() => removeLocationFromList()}
+          onClick={removeLocationFromList}
         />
       </div>
     </div>

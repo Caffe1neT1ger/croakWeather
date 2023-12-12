@@ -9,7 +9,7 @@ import {
   forecastDayLimitList,
   lengthSystem,
   temperatureSystem,
-} from "../../utils/consts";
+} from "../../consts/consts";
 
 import styles from "./Setting.module.scss";
 

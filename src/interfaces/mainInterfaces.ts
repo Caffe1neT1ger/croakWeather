@@ -9,3 +9,8 @@ export interface IMainState {
   numberSystems: any;
   currentLocation: string;
 }
+
+export interface ISettingOption {
+  key: string | number;
+  value: string;
+}

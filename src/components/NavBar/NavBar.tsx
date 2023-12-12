@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import {
   AdjustmentsHorizontalIcon,
@@ -10,34 +10,46 @@ import styles from "./NavBar.module.scss";
 
 export const NavBar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const isActive = (path: string) => {
-    return path === location.pathname;
+  const navigateHandler = (location: string) => {
+    navigate(location);
   };
 
   return (
     <div className={styles.NavBar}>
       <div className={styles.logoSection}>
-        <div className={styles.LogoIcon} onClick={() => navigate("/")}>
+        <div className={styles.LogoIcon} onClick={() => navigateHandler("/")}>
           CW
         </div>
       </div>
       <nav className={styles.navigation}>
-        <CloudIcon
-          className={isActive("/") ? styles.active : styles.default}
-          onClick={() => navigate("/")}
-        />
-
-        <ListBulletIcon
-          className={isActive("/list") ? styles.active : styles.default}
-          onClick={() => navigate("/list")}
-        />
-
-        <AdjustmentsHorizontalIcon
-          className={isActive("/setting") ? styles.active : styles.default}
-          onClick={() => navigate("/setting")}
-        />
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.default
+          }
+          onClick={() => navigateHandler("/")}
+          to="/"
+        >
+          <CloudIcon />
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.default
+          }
+          onClick={() => navigateHandler("/list")}
+          to="/list"
+        >
+          <ListBulletIcon />
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? styles.active : styles.default
+          }
+          onClick={() => navigateHandler("/setting")}
+          to="/setting"
+        >
+          <AdjustmentsHorizontalIcon />
+        </NavLink>
       </nav>
     </div>
   );
